@@ -1,16 +1,8 @@
 services:
   web:
     build: .
-    restart: always
-    working_dir: /app
     volumes:
-      - .:/app
-    ports:
-      - "8001:8000"  # Changed from "8000:8000" - now it will be accessible on port 8001
-    command: >
-      bash -c "
-      python manage.py migrate &&
-      python manage.py collectstatic --noinput &&
-      python manage.py process_tasks &
-      gunicorn --bind 0.0.0.0:8000 --workers 3 zaffar.wsgi:application
-      "
+      - .:/app  # Mount the current directory to /app in the container
+    command: python manage.py runserver 0.0.0.0:8000
+    
+  
