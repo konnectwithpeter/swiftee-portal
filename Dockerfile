@@ -16,9 +16,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-# Make sure the script has Unix-style line endings and is executable
-RUN dos2unix start.sh || true && chmod +x start.sh
-
 EXPOSE 8000
-
-CMD ["/bin/bash", "/app/start.sh"]
