@@ -107,10 +107,22 @@ SIMPLE_JWT = {
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": BASE_DIR / "db.sqlite3",
+#     }
+# }
+
+
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',  # PostgreSQL backend
+        'NAME': 'crm_db',                            # Database name
+        'USER': 'rowg',                          # Database user
+        'PASSWORD': 'your_secure_password',                  # Database password
+        'HOST': '145.223.103.162',                   # Replace with your VPS IP address
+        'PORT': '5432',                            # Default PostgreSQL port
     }
 }
 
