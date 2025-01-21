@@ -1,12 +1,7 @@
-version: '3.8'
-
 services:
   web:
-    image: python:3.11-slim
-    container_name: django_app
+    build: .
     restart: always
-    build:
-      context: .
     working_dir: /app
     volumes:
       - .:/app
@@ -22,18 +17,5 @@ services:
       gunicorn --bind 0.0.0.0:8000 --workers 3 zaffar.wsgi:application
       "
 
-  db:
-    image: postgres:14
-    container_name: postgres_db
-    restart: always
-    environment:
-      POSTGRES_DB: crm_db
-      POSTGRES_USER: rowg
-      POSTGRES_PASSWORD: 1Penny+1Dime
-    ports:
-      - "5433:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-
 volumes:
-  postgres_data:
+  - .:/app
