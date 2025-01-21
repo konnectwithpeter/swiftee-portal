@@ -16,6 +16,3 @@ services:
       python manage.py process_tasks &
       gunicorn --bind 0.0.0.0:8000 --workers 3 zaffar.wsgi:application
       "
-
-volumes:
-  - .:/app
