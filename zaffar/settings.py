@@ -118,9 +118,9 @@ SIMPLE_JWT = {
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",  # PostgreSQL backend
-        "NAME": "crm_db",  # Database name
-        "USER": "rowg",  # Database user
-        "PASSWORD": "1Penny+1Dime",  # Database password
+        "NAME": "postgresql-database-aw8wgs8sokw0ocggskkcs4ws",  # Database name
+        "USER": "postgres",  # Database user
+        "PASSWORD": "QiEUCWL7UMWeWWH2T9VvoBwD2urPSPqc0d2RilJgPvn1gPjI9RBXi3MIPUvZKBvV",  # Database password
         "HOST": "localhost",  # Replace with your VPS IP address
         "PORT": "5432",  # Default PostgreSQL port
     }
