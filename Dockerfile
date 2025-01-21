@@ -24,18 +24,17 @@ COPY . .
 
 # Create a startup script to run migrations, background tasks, and the app
 RUN echo '#!/bin/bash\n\
-set -e\n\
 python manage.py migrate\n\
 python manage.py collectstatic --noinput\n\
 python manage.py process_tasks &\n\
-gunicorn --bind 0.0.0.0:$PORT --workers 3 zaffar.wsgi:application\n\
+gunicorn --bind 0.0.0.0:$PORT --workers 3 <your_project_name>.wsgi:application\n\
 ' > /app/start.sh
 
-# Ensure the script is executable
+# Make the startup script executable
 RUN chmod +x /app/start.sh
 
 # Expose the port that your app runs on
 EXPOSE 8000
 
 # Set the default command to run the startup script
-CMD ["/bin/bash", "/app/start.sh"]
+CMD ["/app/start.sh"]
