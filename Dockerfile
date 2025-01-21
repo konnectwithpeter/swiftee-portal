@@ -23,13 +23,15 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Create a startup script to run migrations, background tasks, and the app
+# Create the start.sh script
 RUN echo '#!/bin/bash\n\
-set -e\n\
 python manage.py migrate\n\
-python manage.py collectstatic --noinput\n\
-python manage.py process_tasks &\n\
-gunicorn --bind 0.0.0.0:$PORT --workers 3 zaffar.wsgi:application\n\
-' > /app/start.sh
+python manage.py process_tasks & \n\
+gunicorn --bind 0.0.0.0:$PORT --workers 3 zaffar.wsgi:application\n' > /app/start.sh
+
+# Make sure it's executable
+RUN chmod +x /app/start.sh
+
 
 # Ensure the script is executable
 RUN chmod +x /app/start.sh
