@@ -27,7 +27,7 @@ COPY . .
 RUN echo '#!/bin/bash\n\
 python manage.py migrate\n\
 python manage.py process_tasks & \n\
-gunicorn --bind 0.0.0.0:$PORT --workers 3 your_project.wsgi:application\n\
+gunicorn --bind 0.0.0.0:$PORT --workers 3 zaffar.wsgi:application\n\
 ' > /app/start.sh
 
 RUN chmod +x /app/start.sh
