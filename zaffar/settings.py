@@ -122,7 +122,7 @@ DATABASES = {
         "USER": "deployer",  # Database user
         "PASSWORD": "choose_a_secure_password_here",  # Database password
         "HOST": "localhost",  # Replace with your VPS IP address
-        "PORT": "3000",  # Default PostgreSQL port
+        "PORT": "5432",  # Default PostgreSQL port
     }
 }
 
